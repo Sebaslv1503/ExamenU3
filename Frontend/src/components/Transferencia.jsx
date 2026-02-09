@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { crearTransferencia, obtenerCuentasCliente, buscarPorAlias } from '../services/deunaService';
+import ReceiptModal from './ReceiptModal';
 import './Transferencia.css';
 
 function Transferencia() {
@@ -16,6 +17,8 @@ function Transferencia() {
     const [loading, setLoading] = useState(false);
     const [mensaje, setMensaje] = useState(null);
     const [buscandoDestino, setBuscandoDestino] = useState(false);
+    const [showReceipt, setShowReceipt] = useState(false);
+    const [receiptData, setReceiptData] = useState(null);
 
     // Cargar cuentas del cliente (ejemplo: cliente ID 1)
     useEffect(() => {
@@ -77,10 +80,13 @@ function Transferencia() {
                 monto: parseFloat(formData.monto)
             });
 
+            const payload = response.data;
             setMensaje({
                 tipo: 'success',
-                texto: `¡Transferencia exitosa! Referencia: ${response.data.referencia}`
+                texto: `¡Transferencia exitosa! Referencia: ${payload.referencia}`
             });
+            setReceiptData(payload);
+            setShowReceipt(true);
 
             // Limpiar formulario
             setFormData({
@@ -157,6 +163,12 @@ function Transferencia() {
                                 <div className="saldo-display">
                                     ${parseFloat(cuentaSeleccionada.saldo_disponible).toFixed(2)}
                                 </div>
+                                <ReceiptModal
+                                    open={showReceipt}
+                                    onClose={() => setShowReceipt(false)}
+                                    data={receiptData}
+                                    type="transferencia"
+                                />
                             </div>
                         )}
                     </div>
@@ -243,6 +255,12 @@ function Transferencia() {
                     </button>
                 </form>
             </div>
+            <ReceiptModal
+                open={showReceipt}
+                onClose={() => setShowReceipt(false)}
+                data={receiptData}
+                type="transferencia"
+            />
         </div>
     );
 }
