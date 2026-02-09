@@ -1,0 +1,97 @@
+.operadoras-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.operadora-card {
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.operadora-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 94, 184, 0.15);
+    transform: translateY(-2px);
+}
+
+.operadora-card.selected {
+    border-color: var(--primary-color);
+    background-color: rgba(0, 94, 184, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 94, 184, 0.2);
+}
+
+.operadora-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.operadora-name {
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.montos-rapidos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.monto-btn {
+    flex: 1;
+    min-width: 70px;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border-color);
+    background: white;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--dark-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.monto-btn:hover {
+    border-color: var(--success-color);
+    background-color: rgba(40, 167, 69, 0.05);
+}
+
+.monto-btn.active {
+    border-color: var(--success-color);
+    background-color: var(--success-color);
+    color: white;
+}
+
+.recarga-confirmacion {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.recarga-confirmacion p {
+    margin: 0.5rem 0;
+}
+
+.resumen-recarga {
+    background-color: var(--light-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.resumen-recarga h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--success-color);
+    margin-bottom: 1rem;
+}
