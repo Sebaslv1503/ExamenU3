@@ -48,6 +48,7 @@ CREATE TABLE clientes (
     apellidos VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     telefono VARCHAR(15) NOT NULL,
+    password VARCHAR(100) NOT NULL DEFAULT '1234',
     direccion TEXT,
     fecha_nacimiento DATE NOT NULL,
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

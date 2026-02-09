@@ -19,6 +19,7 @@ const transferenciasRoutes = require('./routes/transferencias.routes');
 const recargasRoutes = require('./routes/recargas.routes');
 const transaccionesRoutes = require('./routes/transacciones.routes');
 const aliasRoutes = require('./routes/alias.routes');
+const authRoutes = require('./routes/auth.routes');
 
 // Prefijo de APIs
 const API_PREFIX = process.env.API_PREFIX || '/api/v1';
@@ -29,6 +30,7 @@ app.use(`${API_PREFIX}/transferencias`, transferenciasRoutes);
 app.use(`${API_PREFIX}/recargas`, recargasRoutes);
 app.use(`${API_PREFIX}/transacciones`, transaccionesRoutes);
 app.use(`${API_PREFIX}/alias`, aliasRoutes);
+app.use(`${API_PREFIX}/auth`, authRoutes);
 
 // Ruta de bienvenida
 app.get('/', (req, res) => {

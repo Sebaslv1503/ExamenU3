@@ -1,3 +1,8 @@
+// Login
+export const loginCuenta = async (numeroCuenta, password) => {
+    const response = await api.post('/auth/login', { numero_cuenta: numeroCuenta, password });
+    return response.data;
+};
 import api from './api';
 
 // Transferencias
